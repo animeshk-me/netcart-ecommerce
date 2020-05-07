@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class='text-center'><button type="button" class="btn btn-warning"><h1>Profile</h1></button></div>
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col"></th>
+            <th scope="col"> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td><b>Username:</b></td>
+            <td><b><i>{{ request.user }}</i></b></td>
+            </tr>
+            <tr>
+            <td><b>First name: </b></td>
+            <td>{{ profile.firstname }}</td>
+            </tr>
+            <tr>
+            <td><b>Primary Address: </b></td>
+            <td>{{ profile.address1 }}</td>
+            </tr>
+            <tr>
+            <td><b>Secondary Address: </b></td>
+            <td>{{ profile.address2}}</td>
+            </tr>
+            <tr>
+            <td><b>Email id: </b></td>
+            <td>{{ request.user.email }}</td>
+            </tr>
+            <tr>
+            <td><b>Phone: </b></td>
+            <td>{{ profile.phone }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+	
+{% endblock content %}
+

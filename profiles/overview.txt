@@ -1,0 +1,14 @@
+Overview of profiles app:
+
+
+In urls.py ->
+Add:  from profiles import views as user_views
+
+in urlpatterns:
+
+path('profile/', user_views.profile, name='profile'),
+
+I am attaching "views.py" which gives a chance for user to check his details
+
+profile.html -> to display (render it as per the frontend guy designs)
+
