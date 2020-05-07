@@ -1,0 +1,32 @@
+ 
+<form method = 'GET' action ="{% url 'search:search' %}" class="form">
+    <input class="form-control" type="search" placeholder="Search.." name = 'q' aria-label="Search" value = '{{ request.GET.q }}' >
+</form>
+
+{% comment %}
+
+____________________IMPORTANT POINTS___________________
+
+1. 'Search_form.html' is triggered by 'base/navbar.html' and is not
+ explicitly rendered by search_product_list_view() method. The function
+  which renders navbar.html is the one which renders it.
+
+2. method = 'GET' means whenever the user completes the form and hit enter
+ a 'GET' request is made because "POST' request is not required since we
+  are gonna save it into the database.
+
+3. action ="{% url 'search:search' %}" Takes the GET request to the 
+'search' url in 'search' namespace which is literally 'search/' and this 
+GET request does the further job in the search_product_list_view() method 
+which renders out 'search_view.html' based on the 'value'(which can be 
+'shirt') associated with the 'key' "q" which is embedded into this GET 
+request. Remember request.GET is nothing but a python dictionary(literally 
+method dictionary). 
+
+4. value = '{{ request.GET.q }}'
+    is similar to doing request.GET.get('q') or the unsafe way request.GET
+    ['q'](I mean accessing request.GET as a usual dictionary, for more
+     explanation visit the views.py). So the django template engine makes
+     the job easy for us.
+     
+{% endcomment %}

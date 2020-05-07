@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class = 'col-12'>Results for<b> {{ request.GET.q }}</b><hr/></div>
+    {% if Object_list %}
+        {% comment %} <div class='container-fluid'><div class="alert alert-primary" role="alert">Hurry up!! stock is limited!</div></div>
+        <h2>Available Products</h2> {% endcomment %}
+
+        <div class = 'container-fluid'>
+            <div class = 'row'>
+            {% for obj in Object_list %}
+                <div class = 'col-sm-4'>
+                
+                {% include "products/snippets/card.html" with instance=obj %}
+                <hr/></div>
+            {% endfor %}  
+            </div>
+        </div></div>
+    {% else %}
+        <div class='container'><div class="alert alert-danger" role="alert">Sorry that product is not found!</div></div>
+        <div class = 'text-center'><a href="{% url 'products_url:featured_list' %}"><button class = 'btn btn-warning'>Check our featured products</button></a></div>
+    {% endif %}
+   
+    
+
+{% endblock content %}
+
