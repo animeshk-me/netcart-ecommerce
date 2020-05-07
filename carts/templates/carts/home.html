@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+<h2 class = 'text-center'>CART</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Product</th>
+      <th scope="col">Price</th>
+      <th scope="col">Remove from Cart</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for product_obj in cart_obj.products.all  %}
+        <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{ product_obj.title }}</td>
+        <td>₹{{ product_obj.price }}</td>
+        <td><form action = "{% url 'cart_app:remove' %}" method = 'POST'>{% csrf_token %}
+        <input type = 'hidden' name = 'product_id' value = '{{ product_obj.id }}' />
+        <button type = 'submit' class="btn btn-danger">Remove it</button>
+    </form></td>
+        </tr>
+    {% endfor %}
+    <tr>
+      <td colspan='3'></td>
+      <td><h4><b>Total: ₹{{ cart_obj.total }}</b></h4></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 class = 'text-center'><a href = "{% url 'cart_app:checkout' %}"><button  type="button" class="btn btn-warning">Proceed to Checkout</button></a></h2>
+{% comment %} {% include "carts/checkout.html" with cart_object=cart_obj %} {% endcomment %}
+
+
+
+{% endblock content %}
+
+

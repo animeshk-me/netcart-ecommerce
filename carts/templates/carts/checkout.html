@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class = 'text-center'>CHECKOUT</h2>
+<h3>Your Sum total:  ₹{{ cart_obj.total }}</h3>
+<div class = 'container fluid'>
+    <div class = 'row'>
+        <div class = 'col-5' style = "min-height: 400px">
+            
+
+            <div class="alert alert-dark" >
+            <h5>PAYMENT METHODS</h5>
+                
+
+                    <div class = 'col-7'><div class="alert alert-warning" role="alert">
+                    <button href='#' type="button" class="btn btn-warning custom">Pay on Delivery </button>
+                    </div>
+                    <div class="alert alert-info" role="alert">
+                        <button href='#' type="button" class="btn btn-info custom">BHIM UPI </button><small>Unavailable<a href ='#'> Why?</a></small>
+                    </div>
+                    <div class="alert alert-success" role="alert">
+                        <button href='#' type="button" class="btn btn-primary custom">PayTM</button><small>Unavailable<a href ='#'> Why?</a></small>
+                    </div>
+            </div>
+            </div>
+        </div>
+        <div class = 'col- 7'   style = "min-height: 400px" >
+        <div class="alert alert-warning"role="alert">
+        <ul>
+            <li><h3>{{ profile_object.firstname }} {{ profile_object.lastname }}</h3></li>
+            <li>Choose your Address for delivery:
+                <ul>
+                <li><div class='btn-group-vertical'>
+                <button href='#' type="button" class="btn btn-primary ">{{ profile_object.address1 }}</button>
+                <button href='#' type="button" class="btn btn-primary ">{{ profile_object.address2 }}</button></li>
+                </ul>
+            </li>
+        </ul>
+        </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+
+

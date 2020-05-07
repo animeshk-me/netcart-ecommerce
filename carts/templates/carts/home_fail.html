@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h2>Uh-oh.. You cannot make use of <b>Cart</b> because you are logged out.</h2>
+    <div class = 'text-center'><a class="btn btn-warning" href = "{% url 'login' %}" >Login now</a></div>
+
+
+{% endblock content %}
+
+{% block footer %}
+    <br/><footer id="p2"> &copy; 2020 AKumar WebDev Inc. All rights reserved. </footer>
+{% endblock footer %}
