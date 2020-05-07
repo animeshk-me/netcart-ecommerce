@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block ForAll %}
+    <li><a class = 'P4' href = '/'>Home</a></li>
+{% endblock ForAll %}
+
+{% block content %}
+
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-5' style='min-height:500px;'>
+                <img src ='{{ obj.image.url }}' class='img-fluid' height = 400 width = 400 />
+            </div>
+            <div class = 'col-7'>
+                <div class = 'alert alert-warning' style='min-height:500px;'>
+                    <h1>{{ obj.title }}</h1> <br/>
+                    {{ obj.timestamp|timesince }} ago<br/>
+                    <h2><u>Description:</u></h2>
+                    <div class = 'alert alert-info'>
+                        <p>{{ obj.description|linebreaks }}</p>
+                    </div>
+                        <h2>Price:  ₹{{ obj.price }}</h2>
+                        {% if request.user.is_authenticated %}
+                            {% include "products/snippets/update_cart.html" with product=obj cart=cart_obj %}
+                        {% else %}
+                            <a href="{% url 'login' %}"><button  class="btn btn-success">Add to cart</button></a>
+                        {% endif %}
+                        
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock content %}
+{% block footer %}
+    <div class = 'text-center'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col'>
+            <a class="btn btn-primary" href = "#Top" >Scroll to Top</a>
+            <a class="btn btn-primary" href='../../' >Back</a>
+            </div>
+        </div>
+    </div>
+    </div>
+        <br><footer id="p2"> &copy; 2020 AKumar WebDev Inc. All rights reserved. </footer>
+{% endblock footer %}
+

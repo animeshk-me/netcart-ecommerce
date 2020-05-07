@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+    {% if Object_list %}
+        <div class='container-fluid'><div class="alert alert-primary" role="alert">Hurry up!! stock is limited!</div></div>
+
+        <div class = 'container-fluid'>
+            <div class = 'row'>
+            {% for obj in Object_list %}
+
+                {% comment %} style='max-height: 400px;' <li><a href = '{{ obj.get_absolute_url }}'>{{ obj.title }}</a>________Price: ₹{{ obj.price }}</li>
+                <a href = '{{ obj.get_absolute_url }}'>{{ obj.title }}</a>{% endcomment %}
+                <div class = 'col-sm-4'>
+                
+                {% include "products/snippets/card.html" with instance=obj %}
+                <hr/></div>
+            {% endfor %}  
+            </div>
+        </div></div>
+    {% else %}
+        <div class='container'><div class="alert alert-danger" role="alert">Sorry that product is not found!</div></div>
+    {% endif %}
+   
+    
+
+{% endblock content %}
+

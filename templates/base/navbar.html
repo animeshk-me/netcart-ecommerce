@@ -1,0 +1,70 @@
+{% load static %}
+
+{% url 'home_view' as home_url %}
+{% url 'products_url:show_all_products' as all_products%}
+{% url 'products_url:featured_list' as featured %}
+{% url 'cart_app:cart' as show_cart %}
+{% url 'contact' as contact %}
+{% url 'logout' as logout %}
+{% url 'login' as login %}
+{% url 'register' as register %}
+{% url 'profile:profile' as profile %}
+{% url 'profile:profile_update' as profile_update %}
+ {% comment %} https://cdn.pixabay.com/photo/2016/10/10/14/46/icon-1728552__340.jpg{% endcomment %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+  <a class="navbar-brand" href="#"><img src ="{% static 'img/shopping-cart-304843.png' %}" width = 30 height = 30><i><b>netcart</b></i></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      {% comment %} <li class="nav-item">
+        <a class="nav-link {% if request.path == home_url %}active{% endif %}" href="{{ home_url }}">Home <span class="sr-only">(current)</span></a>
+      </li> {% endcomment %}
+      <li class="nav-item">
+        <a class="nav-link {% if request.path == all_products %}active{% endif %}" href="{{ all_products }}">Products</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {% if request.path == featured %}active{% endif %}" href="{{ featured }}">Featured</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link {% if request.path == show_cart %}active{% endif %}" href="{{ show_cart }}"><img src = "{% static 'img/cart2.png' %}"  width = 30 height = 30 >Cart</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link {% if request.path == contact %}active{% endif %}" href="{{ contact }}">Contact us</a>
+      </li>
+
+      {% if request.user.is_authenticated %}
+        <li class="nav-item">
+        <a class="nav-link {% if request.path == logout %}active{% endif %}" href="{{ logout }}">Logout</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/admin">Administration</a>
+        </li>
+      {% else %}
+        <li class="nav-item">
+        <a class="nav-link {% if request.path == login %}active{% endif %}" href="{{ login }}">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {% if request.path == register %}active{% endif %}" href="{{ register }}">Register</a>
+        </li>
+      {% endif %}
+      
+    </ul>
+
+    {% include "search/search_form.html" %}
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+    {% if request.user.is_authenticated %}
+      <a class="nav-link {% if request.path == register %}active{% endif %}" href="{{ profile }}"><img src = "{% static 'img/man.png' %}"  width = 30 height = 30><b>Hi, {{ request.user }}</b></a>
+    {% else %}
+      <a class="nav-link {% if request.path == register %}active{% endif %}" href="#"><img src = "{% static 'img/user.svg' %}"  width = 30 height = 30><b>Logged Out</b></a>
+    {% endif %}
+      </li>
+    </ul>
+    
+  </div>
+</nav>

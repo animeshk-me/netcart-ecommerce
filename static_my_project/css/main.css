@@ -1,0 +1,14 @@
+body {
+    background-color: rgba(38, 42, 46, 0.411);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    /* background-image: url('/img/'; */
+    color: darkred;
+}
+
+.card:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.383);
+}
+
+.custom {
+    width: 200px !important;
+}

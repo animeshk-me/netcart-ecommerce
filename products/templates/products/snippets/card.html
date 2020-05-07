@@ -1,0 +1,32 @@
+
+<div class="card" style="width: 18rem; min-height: 508px;">
+{% if instance.image %}
+  <img src="{{ instance.image.url }}" class="card-img-top" height = 280px alt="...">
+{% endif %}
+  <br/>
+  <div class="card-body">
+    <h5 class="card-title">{{ instance.title }}</h5>
+    <p class="card-text">{{ instance.description|truncatewords:13 }}</p>
+    <a href="{{ instance.get_absolute_url }}" class="btn btn-primary">View</a>
+  </div>
+</div>
+<script>    
+    $(document).ready(function()
+    {
+      $('.col-sm-4').hover(
+        //trigger when mouse hovers.
+        function(){
+          $(this).animate({
+            marginTop: '-=0.06%',
+            width: '+=0.15%',
+          }, 50);
+        },
+        //trigger when mouse goes away.
+        function(){
+          $(this).animate({
+            marginTop: '0%',
+          }, 50);
+        }
+      );
+    });
+</script>
