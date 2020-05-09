@@ -129,17 +129,17 @@ def remove_from_cart(request):
     
 
 
-def checkout_view(request):
-    Cart_object = Cart.objects.get_or_create(request) 
-    try:
-        profile_obj = Profile.objects.get(user=request.user)
-    except Profile.DoesNotExist:
-        return HttpResponse('<html><h2>Profile Does Not Exist</h2></html>')
-    context = { 
-        'cart_obj' : Cart_object,
-        'profile_object' : profile_obj
-    }
-    return render(request, 'carts/checkout.html', context)
+# def checkout_view(request):
+#     Cart_object = Cart.objects.get_or_create(request) 
+#     try:
+#         profile_obj = Profile.objects.get(user=request.user)
+#     except Profile.DoesNotExist:
+#         return HttpResponse('<html><h2>Profile Does Not Exist</h2></html>')
+#     context = { 
+#         'cart_obj' : Cart_object,
+#         'profile_object' : profile_obj
+#     }
+#     return render(request, 'carts/checkout.html', context)
 
 
 #______________If above things don't work, this will work_____________________

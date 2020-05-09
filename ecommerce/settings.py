@@ -39,12 +39,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # My apps(Web_app's components)
-    'home',
     'products',
     'search',
     'tags',
     'carts',
     'profiles', # by vamsi
+
+    'orders',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -154,3 +156,8 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static_cdn', 'media_root')   # so uploaded files go to MEDIA_ROOT, Remember these are not 
 # hard-coded files, these will be uploaded by may be 'enduser'.
+
+STRIPE_SECRET_KEY = "sk_test_plkTsRU0LvReg1DmHlcR6hZJ00WUC7dZhb"
+STRIPE_PUBLISHABLE_KEY = "pk_test_Lc1VPKGWfVIvUMaBEgdNuNHM00Dsa8akHY"
+
+DEFAULT_TAX_RATE = 0.035

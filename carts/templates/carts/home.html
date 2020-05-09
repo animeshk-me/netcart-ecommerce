@@ -33,11 +33,7 @@
   </tbody>
 </table>
 
-<h2 class = 'text-center'><a href = "{% url 'cart_app:checkout' %}"><button  type="button" class="btn btn-warning">Proceed to Checkout</button></a></h2>
-{% comment %} {% include "carts/checkout.html" with cart_object=cart_obj %} {% endcomment %}
-
+<h2 class = 'text-center'><a href = "{% url 'orders:checkout' %}"><button  type="button" class="btn btn-warning">Proceed to Checkout</button></a></h2>
 
 
 {% endblock content %}
-
-
