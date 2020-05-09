@@ -1,17 +1,65 @@
+
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block content %}
-    <div class = 'text-center'><h1>Creators</h1></div>
-    <ul>
-        <li>Animesh Kumar</li>
-        <li>Dhruv Savarkar</li>
-        <li>Haldhar Dwivedi</li>
-        <li>Vamsi</li>
-        <li>Rudra</li>
-    </ul>
-    <h2>Contact options:</h2>
+
+    <div class='text-center'><button type="button" class="btn btn-warning"><h1>CREATORS</h1></button></div>
+
+    <div class="container ">
+        <div class="row no-gutters">
+           <div class=" ccard ">
+                <img src="/static/img/animesh.jpg" width=300 height=400  style="width:100%" alt="animesh ka photo">
+                <h1>Animesh Kumar</h1>
+                <p class="ctitle">Team Member </p>
+                <p class="text-blue">IIITDM Kancheepuram</p>
+                <p><a href="https://www.linkedin.com/in/animesh-kumar-906a6b192/" target="_blank"><button class="cbutton">Contact</button></a></p>
+            </div>
+
+            <div class=" ccard  ">
+                <img src="/static/img/vamsi.jpg" width=300 height=400 style="width:100%" alt="Vamsi ka photo">
+                <h1>Vamsi R Rajan B</h1>
+                <p class="ctitle">Team Member </p>
+                <p class="text-blue">IIITDM Kancheepuram</p>
+                <p><a href="https://www.linkedin.com/in/vamsirajan/" target="_blank"><button class="cbutton">Contact</button></a></p>
+            </div>
+
+            <div class=" ccard  ">
+                <img src="/static/img/rudra.jpg" width=300 height=400  style="width:100%" alt="Rudra ka photo">
+                <h1>Rudra Chogale</h1>
+                <p class="ctitle">Team Member </p>
+                <p class="text-blue" >IIITDM Kancheepuram</p>
+                <p><a href="https://www.linkedin.com/in/rudra-chogale-21b127157" target="_blank"><button class="cbutton">Contact</button></a></p>
+            </div>
+       
+        
+             <div class=" ccard  " >
+                <img src="/static/img/Dhruv.jpg" width=300 height=400  style="width:100%" alt="dhruv ka photo">
+                <h1>Dhruv Sawarkar</h1>
+                <p class="ctitle">Team Member </p>
+                <p class="text-blue">IIITDM Kancheepuram</p>
+                <p><a href="https://www.linkedin.com/in/dhruvsawarkar" target="_blank"><button class="cbutton">Contact</button></a></p>
+            </div>
+
+            <div class=" ccard " >
+                <img src="/static/img/haldhar.jpeg" width=300 height=400  style="width:100%" alt="Haldhar ka photo">
+                <h1>Haldhar Dwiwedi</h1>
+                <p class="ctitle">Team Member </p>
+                <p class="text-blue">IIITDM Kancheepuram</p>
+                <p><a href="https://www.linkedin.com/mwlite/in/haldhardwivedi" target="_blank"><button class="cbutton">Contact</button></a></p>
+            </div> 
+
+        </div>
+    </div>  
+     <p><b><i>"made with love with Django ;-{) "</i></b></p>
 
 
+
+<a href="#"><i class="fa fa-dribbble"></i></a>
+<a href="#"><i class="fa fa-twitter"></i></a>
+<a href="#"><i class="fa fa-linkedin"></i></a>
+<a href="#"><i class="fa fa-facebook"></i></a>
 
 {% include "footer.html" %}
 
