@@ -1,23 +1,29 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
+
+<div class='text-center'><button type="button" class="btn btn-warning custom"><h1>PROFILE</h1></button></div>
 <div class="container">
-    <div class='text-center'><button type="button" class="btn btn-warning"><h1>Profile</h1></button></div>
-    <table class="table">
+	  <div class="row">
+		<div class="col-4" id="default1"><img src = "{% static 'img/man.png' %}" id="default"></div>
+		<div class="col-8">
+		<table  class="table" id="table" >
         <thead>
             <tr>
             <th scope="col"></th>
             <th scope="col"> </th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="tbl">
             <tr>
             <td><b>Username:</b></td>
             <td><b><i>{{ request.user }}</i></b></td>
             </tr>
             <tr>
-            <td><b>First name: </b></td>
-            <td>{{ profile.firstname }}</td>
+            <td><b>Name: </b></td>
+            <td>{{ profile.firstname }}
+            {{ profile.lastname }}</td>
             </tr>
             <tr>
             <td><b>Primary Address: </b></td>
@@ -37,7 +43,8 @@
             </tr>
         </tbody>
     </table>
-</div>
+		</div>
+	  </div>
 	
 {% endblock content %}
 
