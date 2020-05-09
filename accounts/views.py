@@ -15,9 +15,16 @@ def add_user_address(request):
             new_address.user = request.user
             new_address.save()
             is_default = form.cleaned_data["default"]
+            is_default_billing = form.cleaned_data["default_billing"]
             if is_default:
                 default_address, created = UserDefaultAddress.objects.get_or_create(user=request.user)
                 default_address.shipping = new_address
+                default_address.save()
+            else:
+                pass
+            if is_default_billing:
+                default_address, created = UserDefaultAddress.objects.get_or_create(user=request.user)
+                default_address.billing = new_address
                 default_address.save()
             else:
                 pass

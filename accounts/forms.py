@@ -3,7 +3,8 @@ from django import forms
 from .models import UserAddress
 
 class UserAddressForm(forms.ModelForm):
-    default = forms.BooleanField(label='Make Default', required=False)
+    default = forms.BooleanField(label='Make Default Shipping', required=False)
+    default_billing = forms.BooleanField(label='Make Default Billing', required=False)
     class Meta:
         model = UserAddress
         fields = [
