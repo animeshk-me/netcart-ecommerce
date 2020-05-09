@@ -18,6 +18,7 @@
     {% for product_obj in cart_obj.products.all  %}
         <tr>
         <th scope="row">{{ forloop.counter }}</th>
+        <td><a href="{{ product_obj.get_absolute_url }}"><img src="{{ product_obj.image.url }}"  width = 170 height = 200 ></a></td>
         <td>{{ product_obj.title }}</td>
         <td>₹{{ product_obj.price }}</td>
         <td><form action = "{% url 'cart_app:remove' %}" method = 'POST'>{% csrf_token %}
