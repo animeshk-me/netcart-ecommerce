@@ -1,12 +1,17 @@
 body {
-    background-color: rgba(41, 107, 194, 0.561);
+    /* background-color: rgb(75, 95, 18); */
+    background-color: rgb(155, 84, 44);
+    /* background-color: rgb(116, 63, 32); */
+    /* background-image: url('/static/img/ring.jpg');
+    background-repeat: no-repeat; */
     font-family: Georgia, 'Times New Roman', Times, serif;
     /* background-image: url('/img/'; */
     color: rgb(82, 21, 21);
 }
 
 .card:hover {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.383);
+    box-shadow: 0 4px 8px 0 rgb(251, 255, 4), 0 10px 20px 0 rgb(251, 255, 4);
+
 }
 
 .custom {
