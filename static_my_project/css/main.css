@@ -129,12 +129,11 @@ h1{
 
  tr:hover
  {
- background-color:#90aee6;
+ background-color:#e2c26b;
  }
 .tbl
 {
 text-align:left;
 font-style: normal;
-font-size: 30px;
-font-weight: bold;
+font-size: 20px;
 }
