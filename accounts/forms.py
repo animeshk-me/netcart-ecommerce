@@ -15,4 +15,5 @@ class UserAddressForm(forms.ModelForm):
             'country',
             'zipcode',
             'phone',
+            'billing',
         ]
