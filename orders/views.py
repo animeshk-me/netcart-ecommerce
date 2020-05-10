@@ -56,7 +56,7 @@ def checkout(request):
     if address_added is None:
         address_form = UserAddressForm()
     else:
-        address_form = None
+        address_form = UserAddressForm()
     current_address = UserAddress.objects.filter(user=request.user)
     billing_address = UserAddress.objects.get_billing_address(user=request.user)
 
