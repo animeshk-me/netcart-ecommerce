@@ -1,5 +1,5 @@
 body {
-    background-color: rgba(38, 42, 46, 0.411);
+    background-color: rgba(41, 107, 194, 0.561);
     font-family: Georgia, 'Times New Roman', Times, serif;
     /* background-image: url('/img/'; */
     color: rgb(82, 21, 21);
@@ -13,6 +13,14 @@ body {
     width: 200px !important;
 }
 
+.footer {
+    color: rgb(245, 173, 4);
+    background-color: rgb(30, 9, 121);
+}
+
+.footerlink {
+    color: rgb(245, 173, 4);
+}
 
 
 /* _________________________Dhruv_Savarkar's_______________________________ */
