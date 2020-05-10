@@ -10,6 +10,7 @@ from accounts.forms import UserAddressForm
 from accounts.models import UserAddress
 from carts.models import Cart
 from .models import Order
+from products.models import Product
 
 try:
     stripe_pub = settings.STRIPE_PUBLISHABLE_KEY
@@ -21,9 +22,11 @@ except:
 stripe.api_key = stripe_secret
 
 def orders(request):
-    context = {}
-    template = "orders/user.html"
-    return render(request, template, context)
+    queryset = Order.objects.filter(user=request.user, status="paid")
+    context = {
+        'queryset': queryset
+    }
+    return render(request, "orders/user.html", context)
 
 @login_required
 def checkout(request):
@@ -34,16 +37,11 @@ def checkout(request):
         the_id = None
         return HttpResponseRedirect(reverse("cart_app:cart", kwargs={}))
     
-    try:
-        new_order = Order.objects.get(cart=cart)
-    except Order.DoesNotExist:
-        new_order = Order(cart=cart)
-        new_order.cart = cart
-        new_order.user = request.user
-        new_order.save()
-    except:
-        new_order = None
-        return HttpResponseRedirect(reverse("cart_app:cart", kwargs={}))
+    new_order = Order(cart=cart)
+    new_order.cart = cart
+    new_order.user = request.user
+    new_order.save()
+    new_order.products.add(*cart.products.all())
     final_amount = 0
     if new_order is not None:
         new_order.total = cart.total

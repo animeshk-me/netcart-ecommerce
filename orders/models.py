@@ -7,7 +7,7 @@ from decimal import Decimal
 from accounts.models import UserAddress
 from carts.models import Cart
 from products.utils import unique_order_id_generator
-
+from products.models import Product
 # USER = get_user_model()
 
 # dropdown list for merchents
@@ -26,7 +26,7 @@ except:
 class Order(models.Model):
     user            = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING, blank=True, null=True)
     order_id        = models.CharField(max_length=120, blank=True, unique=True)
-    # billing_profile = ?
+    products        = models.ManyToManyField(Product, blank=True)
     shipping_address= models.ForeignKey(UserAddress, on_delete=models.DO_NOTHING, related_name='shipping_address', null=True)
     billing_address = models.ForeignKey(UserAddress, on_delete=models.DO_NOTHING, related_name='billing_address', null=True)
     cart            = models.ForeignKey(Cart,on_delete=models.DO_NOTHING)
@@ -41,6 +41,7 @@ class Order(models.Model):
         two_places = Decimal(10) ** -2
         tax = Decimal(Decimal("%s" %(tax_rate)) * Decimal(self.total)).quantize(two_places)
         return Decimal(self.total) + Decimal(self.shipping_total) + Decimal(tax)
+
 
 def pre_save_create_order_id(sender, instance, *args, **kwargs):
     if not instance.order_id:
