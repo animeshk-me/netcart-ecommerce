@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, get_user_model, logout
 
 from .forms import LoginForm, RegisterForm
 from profiles.models import Profile 
+from accounts.models import UserAddress,UserDefaultAddress
 
 def home_view(request):
     return redirect('products_url:show_all_products')
@@ -53,6 +54,21 @@ def register_page_view(request):
         prof_obj.address2  = form.cleaned_data.get('address2')
         prof_obj.phone     = form.cleaned_data.get('phone')
         prof_obj.save()
+        def_address         = UserAddress.objects.create(user=request.user)
+        def_address.address = prof_obj.address1
+        def_address.address2= prof_obj.address2
+        def_address.phone   = prof_obj.phone
+        def_address.shipping= True
+        def_address.billing = True
+        def_address.city    = form.cleaned_data.get('city')
+        def_address.state   = form.cleaned_data.get('state')
+        def_address.country = form.cleaned_data.get('country')
+        def_address.zipcode = form.cleaned_data.get('zipcode')
+        def_address.save()
+        temp, created       = UserDefaultAddress.objects.get_or_create(user=request.user)
+        temp.billing        = def_address
+        temp.shipping       = def_address
+        temp.save()
     return render(request, 'auth/register_page.html', context)
     
 def contact_view(request):

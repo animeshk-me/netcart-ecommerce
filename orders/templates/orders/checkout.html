@@ -9,7 +9,7 @@
 {% if current_address %}
 <div class="col-sm-10">
     <div class="total">
-        <h1>Current total: ₹{{ final_amount }}* </h1><br/>
+        <h1>Current total: {% if final_amount == 40%}₹0*{% else %} % ₹{{ final_amount }}*{% endif %} </h1><br/>
         <h6>*tax @3.5%, Shipping ₹40 and Platform charge ₹10</h6>
     </div>
 </div>
@@ -30,7 +30,9 @@
             </div>
         </div>
         {% endif %}
-        <a href="#" id="addShippingAddress">Add New Address</a><br/>
+        <div style="padding: 10px;">
+            <button class="btn btn-warning custom"><a href="#" id="addShippingAddress">Add New Address</a><br/></button>
+        </div>
         <form action="" method="POST" id="payment-form">{% csrf_token %}
             {% if current_address %}
             <div class = 'col-6' style = "min-height: 250px" >
@@ -95,7 +97,7 @@
                             <input type="text" size="4" data-stripe="exp-year"/>
                         </label>
                     </div>
-                    <button type="submit" class="btn btn-warning">Submit Payment</button>
+                    <button type="submit" class="btn btn-warning custom">Submit Payment</button>
                 </div>
             </div>
         </form>
@@ -125,8 +127,8 @@
             </div>
         </div>
         {% endif %}
-        <a href="#" id="addShippingAddress">Add New Address</a><br/>
-        <form action="" method="POST" id="payment-form">{% csrf_token %}
+        <button class="btn btn-warning custom" ><a href="#" id="addShippingAddress">Add New Address</a><br/></button>
+        <form action="" method="POST" id="payment-form" >{% csrf_token %}
             {% if current_address %}
             <div class = 'col-6' style = "min-height: 200px" >
                 <div class="alert alert-warning"role="alert">
@@ -182,7 +184,7 @@
                             <input type="text" size="4" data-stripe="exp-year"/>
                         </label>
                     </div>
-                    <button type="submit" class="btn-warning">Submit Payment</button>
+                    <button type="submit" class="btn-warning custom">Submit Payment</button>
                 </div>
             </div>
         </form>

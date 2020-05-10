@@ -97,7 +97,7 @@ def checkout(request):
                 new_order.billing_address = billing_address_instance or None
                 new_order.save()
                 del request.session['cart_id']
-                messages.success(request, "Thank you for your order!")
+                # messages.success(request, "Thank you for your order!")
                 return HttpResponseRedirect(reverse("orders:user-orders", kwargs={}))
         
     context = {

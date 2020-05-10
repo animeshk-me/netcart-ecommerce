@@ -78,7 +78,27 @@ class RegisterForm(forms.Form):
                     (attrs= {
                     'placeholder' : 'Your secondary address',
                     'class' : 'form-control'
-                    }))              
+                    }))
+    city      = forms.CharField(max_length=120,widget=forms.TextInput
+                    (attrs= {
+                    'placeholder' : 'Your City',
+                    'class' : 'form-control'
+                    }))
+    state     = forms.CharField(max_length=120,widget=forms.TextInput
+                    (attrs= {
+                    'placeholder' : 'Your State',
+                    'class' : 'form-control'
+                    }))
+    country   = forms.CharField(max_length=120,widget=forms.TextInput
+                    (attrs= {
+                    'placeholder' : 'Your Country',
+                    'class' : 'form-control'
+                    }))
+    zipcode   = forms.CharField(max_length=25,widget=forms.TextInput
+                    (attrs= {
+                    'placeholder' : 'Your Zipcode',
+                    'class' : 'form-control'
+                    }))           
     phone     = forms.IntegerField(max_value = 10000000000)
     
 
