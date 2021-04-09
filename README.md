@@ -16,14 +16,18 @@ ___
     (using session authentication in django)
     ![Alt text](auth.png)
 
+
 * Product Detail page
     ![Alt text](product-detail.png)
+
 
 * Personal Cart for every registered user
     ![Alt text](cart.png)
 
+
 * Checkout page and payment handling
     ![Alt text](checkout.png)
+
 
 * Personal Profile page for the customer
     ![Alt text](profile.png)
