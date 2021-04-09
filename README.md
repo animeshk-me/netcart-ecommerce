@@ -4,7 +4,8 @@
 * [General info](#general-info)
 * [Functionalities](#functionalities)
 * [Technologies](#technologies)
-* [Launch](#launch)
+* [Visit the web app](#visit-the-web-app)
+* [Contact developer](#contact-developer)
 
 ### General info
 netcartecommerce is a full fledged ecommerce web application powered by django framework of python. It has most of the functionalities one would expect from an ecommerce website.
@@ -43,8 +44,8 @@ ___
 Access [the web app here](http://netcartecommerce.pythonanywhere.com/ "netcartecommerce")
 
 ___
-### Developer contact
-
+### Contact developer
+                
 Animesh Kumar
 
 email: 24animesh11@gmail.com 
