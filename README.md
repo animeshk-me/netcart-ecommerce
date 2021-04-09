@@ -36,7 +36,7 @@ ___
 * CSS
 * jquery
 
-The application is almost entirely build using django framework from frontend to backend. It is deployed using pythonanywhere on the web. 
+The application is almost entirely built using django framework from frontend to backend. It is deployed using pythonanywhere on the web. 
 ___
 
 ### Visit the web app
@@ -44,8 +44,11 @@ Access [the web app here](http://netcartecommerce.pythonanywhere.com/ "netcartec
 
 ___
 ### Developer contact
-                
+
+Animesh Kumar
+
 email: 24animesh11@gmail.com 
+
 phone: +91 7985851496 
 
 <!-- Task List -->
